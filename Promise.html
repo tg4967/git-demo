@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // console.log(123)
+        // fun()
+        // console.log(789)
+        // function fun(){
+        //     let begin = Date.now()
+        //     while(1){
+        //         if(Date.now() -begin > 15000){
+        //             break
+        //         }
+        //     }
+        // }
+        // function fun1(cb){
+        //     setTimeout(() => {
+        //        console.log(1)
+        //        cb("hello") 
+        //     }, 3000);
+        //     console.log(2)
+        // }
+        // fun1((resule) => {
+        //     console.log(resule)
+        // })
+        function fun1(n,cb){
+            setTimeout(() => {
+                cb(n+1)
+            }, 1000);
+        }
+
+        function fun2(n,cb){
+            setTimeout(() => {
+                cb(n+2)
+            }, 1000);
+        }
+
+        function fun3(n,cb){
+            setTimeout(() => {
+                cb(n+3)
+            }, 1000);
+        }
+
+        function fun4(n,cb){
+            setTimeout(() => {
+                cb(n+4)
+            }, 1000);
+        }
+
+        fun1(10,n => {
+            fun2(n,n => {
+                fun3(n,n =>{
+                    fun4(n,n => {
+                        console.log(n);
+                    })
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <!-- <input type="text"> -->
+    <button id="btn01">点我一下</button>
+    <hr>
+    <script>
+        btn01.onclick = function(){
+            var xhr = new XMLHttpRequest()
+            xhr.onload = function(){
+                console.log(JSON.parse(xhr.response))
+                document.body.insertAdjacentHTML("beforeend",xhr.response)
+                
+            }
+            xhr.open("get","https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json")
+            xhr.send()
+            console.log(111)
+        }
+    </script>
+
+</body>
+</html>

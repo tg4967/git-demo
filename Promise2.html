@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const myPromise = new Promise(
+            (resolve,reject) => {
+                // throw new Error("出错了！")
+                setTimeout(() => {
+                //    console.log("异步代码~"); 
+                resolve(666)
+                }, 1000);
+            }
+        )
+    //    myPromise.then(result => console.log(result))
+    //    .catch((e) => {console.log(e);})
+
+    function fun1(n){
+        return new Promise(
+            (resolve) => {
+                setTimeout(() => {
+                    resolve(n+1)
+                }, 1000);
+            }
+        )
+    } 
+
+    function fun2(n){
+        return new Promise(
+            (resolve) => {
+                setTimeout(() => {
+                    resolve(n+2)
+                }, 1000);
+            }
+        )
+    } 
+
+    function fun3(n){
+        return new Promise(
+            (resolve) => {
+                setTimeout(() => {
+                    resolve(n+3)
+                }, 1000);
+            }
+        )
+    } 
+
+    function fun4(n){
+        return new Promise(
+            (resolve) => {
+                setTimeout(() => {
+                    resolve(n+4)
+                }, 1000);
+            }
+        )
+    } 
+
+
+    fun1(10).then(result => fun2(result))
+            .then(result => fun3(result))
+            .then(result => fun4(result))
+            .then(result => console.log(result))
+
+
+
+
+    </script>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <hr>
+    <script>
+        btn01.onclick = function(){
+            fetch("https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json")
+            .then(resp => resp.json())
+            .then(data => console.log(data) )
+            .catch((e) => {console.log(e)})
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        import {a} from "./module.js"
+        function fn(){
+            return new Promise(resolve =>{
+                resolve(10)
+            })
+        }
+
+        async function fn2(){
+            return 10
+        }
+
+        async function fn3(num){
+            return num + 10
+        }
+
+        async function fn4(num){
+            return num + 11
+        }
+
+        async function fn5(num){
+            return num + 15
+        }
+
+        // fn2()
+        // .then(fn3)
+        // .then(fn4)
+        // .then(fn5)
+        // .then(console.log)
+        // .catch(e => {console.log(e)})
+
+        async function fn6(){
+            try{
+            let result = await fn2()
+            result = await fn3(result)
+            result = await fn4(result)
+            result = await fn5(result)
+            console.log(result);
+            }catch(e){
+                console.log(e);
+            }
+        }
+
+        // fn6()
+
+        // (async () => {
+        //     try{
+        //     let result = await fn2()
+        //     result = await fn3(result)
+        //     result = await fn4(result)
+        //     result = await fn5(result)
+        //     console.log(result);
+        //     }catch(e){
+        //         console.log(e);
+        //     }
+        // })()
+
+            try{
+            let result = await fn2()
+            result = await fn3(result)
+            result = await fn4(result)
+            result = await fn5(result)
+            console.log(result);
+            }catch(e){
+                console.log(e);
+            }
+
+        console.log("test");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
